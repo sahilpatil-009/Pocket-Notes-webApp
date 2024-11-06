@@ -1,0 +1,102 @@
+.container{
+    width: 75%;
+    height: 100%;
+    background-color: #DAE5F5;
+}
+
+/* default Right side */
+.rightSideDefault{
+    background-color: #DAE5F5;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    text-align: center;
+}
+
+.imageSec img{
+  max-width: 60%;
+  /* min-width: 30%; */
+  /* border: 2px solid black; */
+  height: auto;
+}
+.imageSec{
+    width: 100%;
+}
+.imageSec h2{
+    font-size: 30px;
+    font-weight:500;
+}
+
+.imageSec p{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.encryption{
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+
+/* notes section */
+.notesSection{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* navbar */
+.navbar{
+    display: flex;
+    background-color: #001F8B;
+    align-items: center;
+    color: #fff;
+    padding: 5px 5px;
+}
+
+.icon{
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    margin-left: 50px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.grpName{
+    margin-left: 1%;
+    font-size: 22px;
+}
+
+/* Message Box */
+.notesBox{
+    width: 100%;
+    height: 65%;
+    background-color: #DAE5F5;
+}
+
+.inputBox{
+    display: grid;
+    place-items: center;
+    height: 35%;
+    background-color:#001F8B;
+}
+
+.inputBox textarea{
+    font-family: 'Roboto';
+    resize: none;
+    width: 90%;
+    height: 80%;
+    outline: none;
+    border-radius: 10px;
+    padding: 5px 10px 5px 12px;
+    font-size: 18px;
+}

@@ -1,0 +1,94 @@
+.container{
+    background-color: rgba(0, 0, 0, 0.7); 
+    inset: 0;
+    color: white;
+    position: fixed;
+    display: grid;
+    place-items: center;
+}
+
+.NewGrp{
+    opacity: 100%;
+    min-width: 480px;
+    height: 220px;
+    background-color: #fff;
+    color: black;
+    z-index: 10;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding: 0px 20px 0 20px;
+    position: relative;
+}
+
+.NewGrp label{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.NewGrp input{
+    width: 60%;
+    margin-left: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px;
+    padding-left:10px;
+    border: 2px solid #CCCCCC;
+    outline: none;
+    border-radius: 18px;
+}
+
+.submit{
+    background-color: #001F8B;
+    color: #fff;
+    padding: 6px 5px 6px 5px;
+    width: 100px;     
+    font-size: 15px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+    /* cursor: pointer;  */
+}
+
+.btnDisable{
+    background-color: #1435aa5a;
+    color: #fff;
+    padding: 6px 5px 6px 5px;
+    width: 100px;     
+    font-size: 15px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+    cursor: not-allowed;
+}
+
+
+/*  */
+.colorContainer{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.chooseColors{
+    margin-left: 20px;
+}
+
+.colorBtn{
+    margin-right: 10px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+
+
+
