@@ -3,13 +3,21 @@ import styles from "../styles/rightSide.module.css";
 import MainImage from "../assets/main_page.png";
 import { MdLock } from "react-icons/md";
 import { IoSend } from "react-icons/io5";
+import { FaArrowLeft } from "react-icons/fa";
 
-const RightSide = ({ displayNotes, setDisplayNote, grpArray, setGrpArray }) => {
-
+const RightSide = ({
+  displayNotes,
+  setDisplayNote,
+  grpArray,
+  setGrpArray,
+  isMobile,
+  showLeftSide,
+  setShowLeftSide,
+}) => {
   //holds user input in TextArea
   const [textAreaInput, setTextAreaInput] = useState();
 
-  // handle user input in TextArea 
+  // handle user input in TextArea
   const handleTextArea = (e) => {
     const value = e.target.value;
     setTextAreaInput(value);
@@ -17,7 +25,6 @@ const RightSide = ({ displayNotes, setDisplayNote, grpArray, setGrpArray }) => {
 
   // handle submit form event
   const handleSubmit = (e) => {
-    
     e.preventDefault();
 
     const now = new Date();
@@ -30,7 +37,7 @@ const RightSide = ({ displayNotes, setDisplayNote, grpArray, setGrpArray }) => {
     };
 
     // search the User selected notes-Group in Note_Group_Array
-    //and 
+    //and
     // Add newNote to user selected noteGroups -> notes[]
     const updateGroup = grpArray.map((group) =>
       group.name === displayNotes.name
@@ -45,8 +52,8 @@ const RightSide = ({ displayNotes, setDisplayNote, grpArray, setGrpArray }) => {
     const updateDisplayNotes = {
       ...displayNotes,
       notes: [...displayNotes.notes, newNote],
-    }
-    
+    };
+
     setDisplayNote(updateDisplayNotes); //render new Note on Notes-Display
 
     setTextAreaInput(""); // Clear the textarea after submission
@@ -72,9 +79,12 @@ const RightSide = ({ displayNotes, setDisplayNote, grpArray, setGrpArray }) => {
     };
     return now.toLocaleTimeString("en-US", timeOptions);
   };
-
+  
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      style={{display : isMobile && showLeftSide ? "none":"block"}}
+    >
       {/* Conditioinal Rendering */}
       {/* If not yet seleced Notes-Group then default window shown on rightside */}
       {displayNotes === null ? (
@@ -98,6 +108,9 @@ const RightSide = ({ displayNotes, setDisplayNote, grpArray, setGrpArray }) => {
         <div className={styles.notesSection}>
           {/* displays logo and name of Notes-Group on top */}
           <div className={styles.navbar}>
+            <button className={styles.backArrow} onClick={()=>setShowLeftSide(true)}>
+              <FaArrowLeft />
+            </button>
             <div
               style={{ backgroundColor: `${displayNotes.color}` }}
               className={styles.icon}
@@ -140,4 +153,3 @@ const RightSide = ({ displayNotes, setDisplayNote, grpArray, setGrpArray }) => {
 };
 
 export default RightSide;
-

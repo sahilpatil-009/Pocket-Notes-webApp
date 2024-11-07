@@ -9,7 +9,7 @@
 
 .NewGrp{
     opacity: 100%;
-    min-width: 480px;
+    width: 480px;
     height: 220px;
     background-color: #fff;
     color: black;
@@ -51,7 +51,6 @@
     position: absolute;
     right: 20px;
     bottom: 10px;
-    /* cursor: pointer;  */
 }
 
 .btnDisable{
@@ -89,6 +88,97 @@
     cursor: pointer;
 }
 
+/* Responsive */
+/* @media only screen and (max-width:1006px){
+    
+}
+
+@media screen and (max-width:681px) {
+    
+} */
+/* @media screen and (max-width:567px) {
+    
+} */
+
+@media screen and (max-width:540px) {
+    .NewGrp{
+        width: 400px;
+    }
+}
+
+@media screen and (max-width:460px) {
+    .NewGrp{
+        width: 300px;
+        height: 200px;
+    }
+    .NewGrp h2{
+        font-size: 20px;
+    }
+    .NewGrp label{
+        font-size: 15px;
+    }
+
+    .NewGrp input{
+        margin-left: 10px;
+        font-size: 12px;
+    }
+    .colorContainer h3{
+        font-size: 15px;
+        /* display: flex; */
+    }
+    .colorBtn{
+        width: 20px;
+        height: 20px;
+    }
+    .submit,
+    .btnDisable{
+        width: 200px;
+        font-size: 12px;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        bottom: 10px;
+    }
+}
+@media screen and (max-width:350px) {
+    .NewGrp{
+        width: 280px;
+        height: 200px;
+        padding: 0px 5px 0 5px;
+    }
+    .NewGrp h2{
+        font-size: 18px;
+    }
+    .NewGrp label{
+        font-size: 15px;
+    }
+
+    .NewGrp input{
+        width: 55%;
+        margin-left: 5px;
+        font-size: 12px;
+    }
+    .chooseColors{
+        margin-left: 2px;
+    }
+    .colorContainer h3{
+        font-size: 15px;
+        margin-right: 2px;
+    }
+    .colorBtn{
+        width: 18px;
+        height: 18px;
+    }
+    .submit,
+    .btnDisable{
+        width: 180px;
+        font-size: 12px;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        bottom: 10px;
+    }
+}
 
 
 

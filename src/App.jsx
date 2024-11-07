@@ -6,8 +6,13 @@ import RightSide from "./components/RightSide";
 import AddGrpModel from "./components/AddGrpModel";
 
 const App = () => {
+  //set user selected Note-group
   const [displayNote, setDisplayNote] = useState(null);
 
+  //set the user seelcted Note-group
+  const [selectedNote, setSelectedNote] = useState(null);
+
+  //set when show the New-add Group
   const [showAddGrp, setShowAddGrp] = useState(false);
 
   // store all Notes Group in array
@@ -21,17 +26,29 @@ const App = () => {
     notes: [],
   });
 
+  const [showLeftSide, setShowLeftSide] = useState(true);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 450);
+  // const[isMobile, setIsMobile]  = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 450);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // console.log("is mobile", isMobile);
+  // console.log("is leftside show", showLeftSide);
   // console.log(grpArray);
 
   //add new Notes Group to Notes Array
   const AddToGrpArray = () => {
-   
     if (data.name && data.color && data.grpIcon) {
       setGrpArray((prevArray) => [...prevArray, data]);
 
       setData({ name: "", color: "", grpIcon: "", notes: [] });
     }
-    
   };
 
   // Retrive stored notes from local storage
@@ -53,12 +70,18 @@ const App = () => {
         setDisplayNote={setDisplayNote}
         data={grpArray}
         setShowAddGrp={setShowAddGrp}
+        setShowLeftSide={setShowLeftSide}
+        showLeftSide={showLeftSide}
+        isMobile={isMobile}
       />
       <RightSide
         displayNotes={displayNote}
         setDisplayNote={setDisplayNote}
         grpArray={grpArray}
         setGrpArray={setGrpArray}
+        isMobile={isMobile}
+        showLeftSide={showLeftSide}
+        setShowLeftSide={setShowLeftSide}
       />
       {showAddGrp && (
         <AddGrpModel

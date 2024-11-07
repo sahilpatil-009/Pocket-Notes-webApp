@@ -10,7 +10,7 @@ body{
 
 .leftSide{
     background-color: #fff;
-    width: 25%; 
+    width: 20%; 
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -46,9 +46,8 @@ body{
 }
 
 .grpCard{
-    display: flex;
     /* background-color: #2F2F2F2B; */
-    margin: 0px 0px 10px 0px;
+    /* margin: 0px 0px 5px 0px; */
     height: 80px;
     display: flex;
     align-items: center;
@@ -63,22 +62,23 @@ body{
 .grLogo{
     /* background-color: blue; */
     color: #fff;
-    width: 55px;
-    height: 55px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     text-align: center;
     display: grid;
     align-items: center;
     justify-content: center;
-    margin-left: 50px;
+    margin-left: 50px; 
     font-size: 20px;
     font-weight: 400;
 }
 
 .grName{
-    margin-left: 20px;
+    margin-left: 10px;
     font-size: 18px;
     font-weight: 500;
+    overflow: hidden;
 }
 
 .addGrp{
@@ -101,4 +101,135 @@ body{
     background-color:#2F2F2F2B;
 }
 
+.leftSideMobile{
+    width: 100%;
+}
+
+/* Media Responsive Css */
+
+@media only screen and (max-width:1070px) {
+    .grpCard{
+        height: 60px;
+    }
+    .leftSide h2{
+        font-size: 22px;
+    }
+    .grLogo{
+        margin-left: 5px;
+        width: 40px;
+        height: 40px;
+        font-size: 15px; 
+    }
+    .grName{
+        font-size: 15px;   
+        margin-left: 10px;
+    }
+    .addGrp{
+        width: 50px;
+        height: 50px;
+        font-size: 25px;
+    }
+}
+
+@media only screen and (max-width:740px) {
+    .leftSide h2{
+        font-size: 20px;
+    }
+
+    .grpCard{
+        height: 55px;
+    }
+    .grLogo{
+        margin-left: 10px;
+        width: 35px;
+        height: 35px;
+        font-size: 13px; 
+    }
+    .grName{
+        font-size: 13px;   
+        margin-left: 10px;
+    }
+    .addGrp{
+        width: 50px;
+        height: 50px;
+        font-size: 25px;
+    }
+}
+@media only screen and (max-width:631px) {
+    .grpCard{
+        height: 50px;
+    }
+    .grLogo{
+        margin-left: 8px;
+        width: 30px;
+        height: 30px;
+        font-size: 13px; 
+    }
+    .grName{
+        font-size: 13px;   
+        margin-left: 5px;
+    }
+    .addGrp{
+        width: 50px;
+        height: 50px;
+        font-size: 25px;
+    }
+}
+@media only screen and (max-width:567px) {
+    .leftSide h2{
+        font-size: 18px;
+    }
+    .grpCard{
+        height: 50px;
+    }
+    .grLogo{
+        margin-left: 5px;
+        width: 28px;
+        height: 28px;
+        font-size: 12px; 
+    }
+    .grName{
+        font-size: 12px;   
+        margin-left: 5px;
+    }
+    .addGrp{
+        width: 40px;
+        height: 40px;
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width:450px) {
+    .leftSide{
+        display: none;
+        width: 100%;
+    }
+    .leftSide h2{
+        display: grid;
+        place-items: center;
+        margin-top: 20px;
+        font-size: 25px;
+    }
+    .notesGrp{
+        width: 100%;
+    }
+    .grpCard{
+        width: 100%;
+        height: 60px;
+    }
+    .grLogo{
+        margin-left: 15%;   
+        font-size: 18px;
+        width: 45px;
+        height: 45px;
+    }
+    .grName{
+        font-size: 18px;
+    }
+    .addGrp{
+        width: 50px;
+        height: 50px;
+    }
+
+}
 

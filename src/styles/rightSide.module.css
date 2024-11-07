@@ -1,5 +1,5 @@
 .container{
-    width: 75%;
+    width: 80%;
     height: 100%;
     background-color: #DAE5F5;
 }
@@ -173,4 +173,98 @@
 
 .dateTime li:nth-child(1){
     list-style: none;
+}
+
+.backArrow{
+    all: unset;
+    color: #fff;
+    font-size: 20px;
+    width: 5%;
+    height: 60%;
+    display: grid;
+    place-content: center;
+    margin: 0 10px 0 10px;
+    display: none;
+    /* border: 1px solid white; */
+}
+
+/* for mobile screen */
+.displayBloclMobile{
+    width: 100%;
+    display: block;
+}
+
+/* Responsive */
+@media only screen and (max-width:1070px){
+    .grpName{
+        font-size: 20px;
+    }
+    .icon{
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        margin-left: 20px;
+    }
+    .dateTime li,
+    .notePad{
+        font-size: 12px;
+    }
+    .inputBox textarea{
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width:681px) {
+    .imageSec h2{
+        font-size: 25px;
+    }
+    .imageSec p{
+        font-size: 15px;
+    }
+    .encryption{
+        font-size: 15px;
+    }
+    .inputBox{
+        height: 30%;
+    }
+    .sendIcon{
+        font-size: 20px;
+    }
+}
+@media screen and (max-width:567px) {
+    .grpName{
+        font-size: 15px;
+    }
+    .icon{
+        width: 30px;
+        height: 30px;
+        font-size: 15px;
+        margin-left: 10px;
+    }
+    .imageSec h2{
+        font-size: 20px;
+    }
+    .imageSec p{
+        font-size: 12px;
+    }
+    .encryption{
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width:450px) {
+    .container{
+        display: none;  
+        width: 100%;
+    }
+    .backArrow{
+        display: block;
+    }
+    .icon{
+        font-size: 13px;
+    }
+    .grpName{
+        font-size: 13px;
+        margin-left: 10px;
+    }
 }
