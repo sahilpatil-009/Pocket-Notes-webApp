@@ -1,11 +1,82 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../styles/rightSide.module.css";
 import MainImage from "../assets/main_page.png";
 import { MdLock } from "react-icons/md";
+import { IoSend } from "react-icons/io5";
 
-const RightSide = ({ displayNotes }) => {
+const RightSide = ({ displayNotes, setDisplayNote, grpArray, setGrpArray }) => {
+
+  //holds user input in TextArea
+  const [textAreaInput, setTextAreaInput] = useState();
+
+  // handle user input in TextArea 
+  const handleTextArea = (e) => {
+    const value = e.target.value;
+    setTextAreaInput(value);
+  };
+
+  // handle submit form event
+  const handleSubmit = (e) => {
+    
+    e.preventDefault();
+
+    const now = new Date();
+
+    //object Bueprint for newNote
+    const newNote = {
+      note: textAreaInput,
+      date: formatDate(now),
+      time: formatTime(now),
+    };
+
+    // search the User selected notes-Group in Note_Group_Array
+    //and 
+    // Add newNote to user selected noteGroups -> notes[]
+    const updateGroup = grpArray.map((group) =>
+      group.name === displayNotes.name
+        ? { ...group, notes: [...group.notes, newNote] }
+        : group
+    );
+
+    // update NotesGroupArray
+    setGrpArray(updateGroup);
+
+    // add new notes input by user
+    const updateDisplayNotes = {
+      ...displayNotes,
+      notes: [...displayNotes.notes, newNote],
+    }
+    
+    setDisplayNote(updateDisplayNotes); //render new Note on Notes-Display
+
+    setTextAreaInput(""); // Clear the textarea after submission
+  };
+
+  const formatDate = (now) => {
+    // Define options for date format
+    const dateOptions = {
+      day: "numeric",
+      month: "short",
+      year: "numeric",
+    };
+
+    return now.toLocaleDateString("en-US", dateOptions);
+  };
+
+  const formatTime = (now) => {
+    //Define optinos for time format
+    const timeOptions = {
+      hour: "numeric",
+      minute: "numeric",
+      hour12: true,
+    };
+    return now.toLocaleTimeString("en-US", timeOptions);
+  };
+
   return (
     <div className={styles.container}>
+      {/* Conditioinal Rendering */}
+      {/* If not yet seleced Notes-Group then default window shown on rightside */}
       {displayNotes === null ? (
         <div className={styles.rightSideDefault}>
           <div className={styles.imageSec}>
@@ -23,15 +94,45 @@ const RightSide = ({ displayNotes }) => {
           </div>
         </div>
       ) : (
+        // Render users notes after user select Notes-Group
         <div className={styles.notesSection}>
+          {/* displays logo and name of Notes-Group on top */}
           <div className={styles.navbar}>
-            <div style={{backgroundColor:`${displayNotes.color}`}} className={styles.icon}>{displayNotes.grpIcon}</div>
+            <div
+              style={{ backgroundColor: `${displayNotes.color}` }}
+              className={styles.icon}
+            >
+              {displayNotes.grpIcon}
+            </div>
             <div className={styles.grpName}>{displayNotes.name}</div>
           </div>
-          <div className={styles.notesBox}>{displayNotes.name}</div>
-          <div className={styles.inputBox}>
-            <textarea placeholder="Enter your text here..........."></textarea>
+          {/* Render user Prevoius Notes and New notes after adding newNote */}
+          <div className={styles.notesBox}>
+            {displayNotes.notes.map((item, index) => (
+              <div key={index} className={styles.notePad}>
+                <div>{item.note}</div>
+                <div className={styles.dateTime}>
+                  <li>{item.date}</li>
+                  <li>{item.time}</li>
+                </div>
+              </div>
+            ))}
           </div>
+          {/* User inputs New Note */}
+          <form className={styles.inputBox} onSubmit={handleSubmit}>
+            <textarea
+              placeholder="Enter your text here..........."
+              value={textAreaInput}
+              onChange={handleTextArea}
+            ></textarea>
+            <button
+              className={styles.sendIcon}
+              style={{ color: textAreaInput ? "#001F8B" : "" }}
+              type="submit"
+            >
+              <IoSend />
+            </button>
+          </form>
         </div>
       )}
     </div>
@@ -39,3 +140,4 @@ const RightSide = ({ displayNotes }) => {
 };
 
 export default RightSide;
+

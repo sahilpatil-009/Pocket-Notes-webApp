@@ -7,7 +7,7 @@ import AddGrpModel from "./components/AddGrpModel";
 
 const App = () => {
   const [displayNote, setDisplayNote] = useState(null);
-  
+
   const [showAddGrp, setShowAddGrp] = useState(false);
 
   // store all Notes Group in array
@@ -18,19 +18,20 @@ const App = () => {
     name: "",
     color: "",
     grpIcon: "",
-    
+    notes: [],
   });
 
-  console.log(grpArray);
+  // console.log(grpArray);
 
   //add new Notes Group to Notes Array
   const AddToGrpArray = () => {
-    console.log("AddToGrpArray start");
+   
     if (data.name && data.color && data.grpIcon) {
       setGrpArray((prevArray) => [...prevArray, data]);
 
-      setData({ name: "", color: "", grpIcon: "" });
+      setData({ name: "", color: "", grpIcon: "", notes: [] });
     }
+    
   };
 
   // Retrive stored notes from local storage
@@ -53,7 +54,12 @@ const App = () => {
         data={grpArray}
         setShowAddGrp={setShowAddGrp}
       />
-      <RightSide displayNotes={displayNote} />
+      <RightSide
+        displayNotes={displayNote}
+        setDisplayNote={setDisplayNote}
+        grpArray={grpArray}
+        setGrpArray={setGrpArray}
+      />
       {showAddGrp && (
         <AddGrpModel
           onClose={() => setShowAddGrp(false)}

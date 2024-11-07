@@ -4,7 +4,6 @@ import styles from "../styles/addGrpModel.module.css";
 const AddGrpModel = ({ onClose, setData, data, AddToGrpArray}) => {
   
   const [selectedColor, setSelectedcolor] = useState("");
-  // const [buttonClick, setButtonClick] = useState(false);
 
   const modelRef = useRef();
   const closeModel = (e) => {
