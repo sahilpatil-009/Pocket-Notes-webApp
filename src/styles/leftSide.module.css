@@ -47,8 +47,8 @@ body{
     height: 65px;
     border: none;
     position: absolute;
-    bottom: 20px;
-    right: 20px;
+    bottom: 5%;
+    right: 4%;
     font-size: 35px;
     background-color: #16008B;
     color: #fff;
@@ -118,8 +118,11 @@ body{
         width: 100%;
     }
     .addGrp{
-        width: 50px;
-        height: 50px;
+        width: 65px;
+        height: 65px;
+        bottom: 10%;
+        right: 10%;
+        font-size: 30px;
     }
     
 }

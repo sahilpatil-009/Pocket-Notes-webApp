@@ -179,12 +179,12 @@
     }
     .submit,
     .btnDisable{
-        width: 180px;
+        width: 200px;
         font-size: 12px;
         position: absolute;
         left: 50%;
         transform: translate(-50%, -50%);
-        bottom: 10px;
+        bottom: 2px;
     }
 }
 
