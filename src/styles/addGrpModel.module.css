@@ -10,7 +10,7 @@
 .NewGrp{
     opacity: 100%;
     width: 480px;
-    height: 220px;
+    height: 240px;
     background-color: #fff;
     color: black;
     z-index: 10;
@@ -37,6 +37,16 @@
     border: 2px solid #CCCCCC;
     outline: none;
     border-radius: 18px;
+}
+
+.notUnique{
+    height: 15px;
+    width: 100%;
+    color: red;
+    font-size: 15px;
+    margin-left: 30%;
+    margin-top: 0%; 
+    margin-bottom: 0%;
 }
 
 .submit{
@@ -89,20 +99,14 @@
 }
 
 /* Responsive */
-/* @media only screen and (max-width:1006px){
-    
-}
-
-@media screen and (max-width:681px) {
-    
-} */
-/* @media screen and (max-width:567px) {
-    
-} */
 
 @media screen and (max-width:540px) {
     .NewGrp{
         width: 400px;
+    }
+    .notUnique{
+        font-size: 13px;
+        margin-left: 35%;
     }
 }
 
@@ -138,6 +142,10 @@
         left: 50%;
         transform: translate(-50%, -50%);
         bottom: 10px;
+    }
+    .notUnique{
+        font-size: 10px;
+        margin-left: 35%;
     }
 }
 @media screen and (max-width:350px) {

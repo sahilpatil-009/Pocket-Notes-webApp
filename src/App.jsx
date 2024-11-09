@@ -9,9 +9,6 @@ const App = () => {
   //set user selected Note-group
   const [displayNote, setDisplayNote] = useState(null);
 
-  //set the user seelcted Note-group
-  const [selectedNote, setSelectedNote] = useState(null);
-
   //set when show the New-add Group
   const [showAddGrp, setShowAddGrp] = useState(false);
 
@@ -28,8 +25,8 @@ const App = () => {
 
   const [showLeftSide, setShowLeftSide] = useState(true);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 450);
-  // const[isMobile, setIsMobile]  = useState(false);
 
+  // handle and check display size for mobile view
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 450);
@@ -37,10 +34,6 @@ const App = () => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
-  // console.log("is mobile", isMobile);
-  // console.log("is leftside show", showLeftSide);
-  // console.log(grpArray);
 
   //add new Notes Group to Notes Array
   const AddToGrpArray = () => {
@@ -89,6 +82,7 @@ const App = () => {
           setData={setData}
           data={data}
           AddToGrpArray={AddToGrpArray}
+          grpArray = {grpArray}
         />
       )}
     </div>

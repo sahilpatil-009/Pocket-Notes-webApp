@@ -1,0 +1,64 @@
+/* default Right side */
+.rightSideDefault{
+    background-color: #DAE5F5;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    text-align: center;
+    user-select: none;
+}
+
+.imageSec img{
+    max-width: 60%;
+    height: auto;
+  }
+
+  .imageSec{
+    width: 100%;
+}
+.imageSec h2{
+    font-size: 30px;
+    font-weight:500;
+}
+
+.imageSec p{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.encryption{
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+
+/* Responsive */
+@media screen and (max-width:681px) {
+    .imageSec h2{
+        font-size: 25px;
+    }
+    .imageSec p{
+        font-size: 15px;
+    }
+    .encryption{
+        font-size: 15px;
+    }
+    .inputBox{
+        height: 30%;
+    }
+}
+
+@media screen and (max-width:567px) {
+    .imageSec h2{
+        font-size: 20px;
+    }
+    .imageSec p{
+        font-size: 12px;
+    }
+    .encryption{
+        font-size: 12px;
+    }
+}

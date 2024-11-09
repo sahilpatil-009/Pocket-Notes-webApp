@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import styles from "../styles/rightSide.module.css";
-import MainImage from "../assets/main_page.png";
-import { MdLock } from "react-icons/md";
-import { IoSend } from "react-icons/io5";
-import { FaArrowLeft } from "react-icons/fa";
+import RightsideDefault from "./RightsideDefault";
+import RightNotesNav from "./RightNotesNav";
+import NotesBox from "./NotesBox";
+import InputField from "./InputField";
 
 const RightSide = ({
   displayNotes,
@@ -79,73 +79,34 @@ const RightSide = ({
     };
     return now.toLocaleTimeString("en-US", timeOptions);
   };
-  
+
   return (
     <div
       className={styles.container}
-      style={{display : isMobile && showLeftSide ? "none":"block"}}
+      style={{ display: isMobile && showLeftSide ? "none" : "block" }}
     >
       {/* Conditioinal Rendering */}
       {/* If not yet seleced Notes-Group then default window shown on rightside */}
       {displayNotes === null ? (
-        <div className={styles.rightSideDefault}>
-          <div className={styles.imageSec}>
-            <img src={MainImage} alt="main Image" />
-            <h2>Pocket Notes</h2>
-            <p>
-              Send and receive messages without keeping your phone online.{" "}
-              <br /> Use Pocket Notes on up to 4 linked devices and 1 mobile
-              phone
-            </p>
-          </div>
-          <div className={styles.encryption}>
-            <MdLock />
-            end-to-end encrypted
-          </div>
-        </div>
+        <RightsideDefault />
       ) : (
         // Render users notes after user select Notes-Group
         <div className={styles.notesSection}>
           {/* displays logo and name of Notes-Group on top */}
-          <div className={styles.navbar}>
-            <button className={styles.backArrow} onClick={()=>setShowLeftSide(true)}>
-              <FaArrowLeft />
-            </button>
-            <div
-              style={{ backgroundColor: `${displayNotes.color}` }}
-              className={styles.icon}
-            >
-              {displayNotes.grpIcon}
-            </div>
-            <div className={styles.grpName}>{displayNotes.name}</div>
-          </div>
+          <RightNotesNav
+            displayNotes={displayNotes}
+            setShowLeftSide={setShowLeftSide}
+          />
+
           {/* Render user Prevoius Notes and New notes after adding newNote */}
-          <div className={styles.notesBox}>
-            {displayNotes.notes.map((item, index) => (
-              <div key={index} className={styles.notePad}>
-                <div>{item.note}</div>
-                <div className={styles.dateTime}>
-                  <li>{item.date}</li>
-                  <li>{item.time}</li>
-                </div>
-              </div>
-            ))}
-          </div>
+          <NotesBox displayNotes={displayNotes} />
+
           {/* User inputs New Note */}
-          <form className={styles.inputBox} onSubmit={handleSubmit}>
-            <textarea
-              placeholder="Enter your text here..........."
-              value={textAreaInput}
-              onChange={handleTextArea}
-            ></textarea>
-            <button
-              className={styles.sendIcon}
-              style={{ color: textAreaInput ? "#001F8B" : "" }}
-              type="submit"
-            >
-              <IoSend />
-            </button>
-          </form>
+          <InputField
+            handleSubmit={handleSubmit}
+            handleTextArea={handleTextArea}
+            textAreaInput={textAreaInput}
+          />
         </div>
       )}
     </div>

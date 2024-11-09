@@ -1,10 +1,15 @@
 import React, { useRef, useState } from "react";
 import styles from "../styles/addGrpModel.module.css";
 
-const AddGrpModel = ({ onClose, setData, data, AddToGrpArray}) => {
+const AddGrpModel = ({ onClose, setData, data, AddToGrpArray,grpArray}) => {
   
+  // set user selected colours
   const [selectedColor, setSelectedcolor] = useState("");
 
+  // set group name is unique or not
+  const [uniqueGname, setUniqueGname] = useState(false);
+
+  // use to handle colse add new group form
   const modelRef = useRef();
   const closeModel = (e) => {
     if (modelRef.current === e.target) {
@@ -23,6 +28,10 @@ const AddGrpModel = ({ onClose, setData, data, AddToGrpArray}) => {
   const handleChange = (e) => {
     const { value } = e.target;
 
+    // check unique group name
+    const exist =  grpArray.some((group) => group.name === value.trim());
+    setUniqueGname(exist);
+
     const word = value.trim().split(" ");
     let icon = "";
     if(word.length === 1){
@@ -37,6 +46,7 @@ const AddGrpModel = ({ onClose, setData, data, AddToGrpArray}) => {
       name: value,
       grpIcon: icon.toUpperCase(),
     }));
+    
   };
 
   const handleSubmit = (e) => {
@@ -50,7 +60,7 @@ const AddGrpModel = ({ onClose, setData, data, AddToGrpArray}) => {
       <form className={styles.NewGrp} onSubmit={handleSubmit}>
         <h2>Create New Group</h2>
         <label>
-          Group Name{" "}
+          Group Name
           <input
             type="text"
             placeholder="Enter group Name"
@@ -58,6 +68,7 @@ const AddGrpModel = ({ onClose, setData, data, AddToGrpArray}) => {
             onChange={handleChange}
             required
           />
+            <p className={styles.notUnique} style={{ visibility: uniqueGname ? "visible" : "hidden" }}>Already Exist</p>
         </label>
         <div className={styles.colorContainer}>
           <h3>Choose colour</h3>
@@ -86,9 +97,8 @@ const AddGrpModel = ({ onClose, setData, data, AddToGrpArray}) => {
         <button
           type="submit"
           // className={styles.submit}
-          className={data.name.length < 2 || data.color === "" ? styles.btnDisable : styles.submit}
-          disabled={data.name.length < 2 || data.color === ""}
-
+          className={data.name.length < 2 || data.color === "" || uniqueGname ? styles.btnDisable : styles.submit}
+          disabled={data.name.length < 2 || data.color === "" || uniqueGname}
         >
           Create
         </button>
