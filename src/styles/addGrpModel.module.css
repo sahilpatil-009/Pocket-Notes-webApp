@@ -166,6 +166,9 @@
         margin-left: 5px;
         font-size: 12px;
     }
+    .colorContainer{
+        margin-bottom: 10px;
+    }
     .chooseColors{
         margin-left: 2px;
     }
@@ -184,7 +187,8 @@
         position: absolute;
         left: 50%;
         transform: translate(-50%, -50%);
-        bottom: 2px;
+        margin-top: 20px;
+        bottom: 0px;
     }
 }
 
